@@ -1,0 +1,6 @@
+<?php
+    ob_start();
+    function asset_url(){
+        return base_url().'assets/';
+    }
+?>
