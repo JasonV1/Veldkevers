@@ -1,6 +1,7 @@
 <style>
     #form {
         height:800px;
+        float:left;
     }
     #column2 {
         width: 500px;
@@ -8,6 +9,7 @@
         top:200px;
         left:835px;
         position:absolute;
+        float:right;
     }
     
     
@@ -29,6 +31,12 @@
             </tr>
             <tr>
                 <td><input type="text" name="achternaam" /></td>
+            </tr>
+            <tr>
+                <td>E-mailadres</td>
+            </tr>
+            <tr>
+                <td><input type="text" name="mail" /></td>
             </tr>
             <tr>
                 <td>Vraag</td>

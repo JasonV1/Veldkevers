@@ -33,10 +33,11 @@
 							
 							<!-- Nav -->
 								<nav id="nav">
-									<a href="index.html">Homepage</a>
+									<a href="<?php echo base_url(); ?>index.php">Home</a>
 									<a href="<?php echo base_url(); ?>index.php/contactpagina/contact">Contact</a>
-									<a href="twocolumn2.html">Two Column #2</a>
-									<a href="onecolumn.html">One Column</a>
+									<a href="#">Autos</a>
+									<a href="<?php echo base_url(); ?>index.php/user/registration">Registreren</a>
+                                                                        <a href="<?php echo base_url(); ?>index.php/user/login">Login</a>
 								</nav>
 
 						</div>
