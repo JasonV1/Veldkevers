@@ -222,3 +222,23 @@
 		{
 			color: #8d9ca3;
 		}
+
+/* Jason's troep */
+
+table, th, td
+    {
+    border: 0px solid black;
+    }
+    th
+    {
+    text-align:left;
+    }
+    td
+    {
+    text-align:left;
+    }
+    a
+    {
+    text-decoration:none;
+    }
+    

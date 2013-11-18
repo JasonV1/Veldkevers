@@ -20,5 +20,13 @@ class Autos extends CI_Controller {
         $this->load->view('cars',$data);
         $this->load->view("footeronecolumn");
     }
+    
+    public function auto_overzicht($id){
+        $this->load->view("headeronecolumn");
+        $data['query']=$this->car_model->get_car_data_by_id($id);
+        $this->load->view('car_overview',$data);
+        $this->load->view("footeronecolumn");
+    }
+    
 }
 ?>

@@ -35,7 +35,7 @@
 								<nav id="nav">
 									<a href="<?php echo base_url(); ?>index.php">Home</a>
 									<a href="<?php echo base_url(); ?>index.php/contactpagina/contact">Contact</a>
-									<a href="<?php echo base_url(); ?>index.php/autos/auto">Autos</a>
+									<a href="<?php echo base_url(); ?>index.php/autos/auto">Auto's</a>
 									<a href="<?php echo base_url(); ?>index.php/user/registration">Registreren</a>
                                                                         <a href="<?php echo base_url(); ?>index.php/user/login_view">Login</a>
 								</nav>
