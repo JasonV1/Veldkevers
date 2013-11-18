@@ -8,7 +8,7 @@ class User extends CI_Controller{
  public function index()
  {
    $this->load->view('headeronecolumn');
-   $this->load->view("registration");
+   $this->load->view('registration');
    $this->load->view('footeronecolumn');
  }
  public function welcome()
@@ -18,7 +18,7 @@ class User extends CI_Controller{
   $this->load->view('footeronecolumn');
  }
  public function login()
- {
+ { 
   $emailadres=$this->input->post('emailadres');
   $wachtwoord=($this->input->post('wachtwoord'));
 
@@ -30,7 +30,7 @@ class User extends CI_Controller{
  {
   $data['title']= 'Thanks';
   $this->load->view('headeronecolumn',$data);
-  $this->load->view('thank_view.php', $data);
+  $this->load->view('login_view', $data);
   $this->load->view('footeronecolumn',$data);
  }
  public function registration()
