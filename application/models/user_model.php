@@ -28,6 +28,7 @@ class User_model extends CI_Model {
  }
  public function add_user()
  {
+  $this->db->trans_start();
   $data=array(
     'voornaam'=>$this->input->post('voornaam'),
     'achternaam'=>$this->input->post('achternaam'),
@@ -35,8 +36,18 @@ class User_model extends CI_Model {
     'telefoonnr'=>$this->input->post('telefoonnr'),
     'adres'=>$this->input->post('adres'),
     'wachtwoord'=>($this->input->post('wachtwoord'))
+   );
+  
+  $this->db->insert('gebruiker', $data);
+  
+  $data1=array(
+    'rolnaam'=>$this->input->post('rolnaam')
   );
-  $this->db->insert('gebruiker',$data);
+  var_dump($data1);
+  $this->db->insert('rollen', $data1);
+  
+  $this->db->trans_complete();
+  
  }
 }
 ?>

@@ -8,6 +8,13 @@ class User extends CI_Controller{
  public function index()
  {
    $this->load->view('headeronecolumn');
+   $this->load->view('index.html');
+   $this->load->view('footeronecolumn');
+ }
+ 
+ public function registration_view()
+ {
+   $this->load->view('headeronecolumn');
    $this->load->view('registration');
    $this->load->view('footeronecolumn');
  }
@@ -32,6 +39,13 @@ class User extends CI_Controller{
   $this->load->view('headeronecolumn',$data);
   $this->load->view('login_view', $data);
   $this->load->view('footeronecolumn',$data);
+ }
+ 
+ public function login_view()
+ {
+  $this->load->view('headeronecolumn');
+  $this->load->view('login_view');
+  $this->load->view('footeronecolumn');
  }
  public function registration()
  {
