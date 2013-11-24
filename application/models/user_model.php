@@ -26,7 +26,7 @@ class User_model extends CI_Model {
   }
   return false;
  }
- public function add_user()
+ public function add_klant()
  {
   $this->db->trans_start();
   $data=array(
@@ -40,11 +40,9 @@ class User_model extends CI_Model {
   
   $this->db->insert('gebruiker', $data);
   
-  $data1=array(
-    'rolnaam'=>$this->input->post('rolnaam')
-  );
-  var_dump($data1);
-  $this->db->insert('rollen', $data1);
+  $table1_id = $this->db->insert_id();
+  
+  $this->db->query('INSERT INTO gebruikersrol VALUES(1,' . $table1_id . ')');
   
   $this->db->trans_complete();
   

@@ -65,7 +65,7 @@ class User extends CI_Controller{
   }
   else
   {
-   $this->user_model->add_user();
+   $this->user_model->add_klant();
    $this->thank();
   }
  }

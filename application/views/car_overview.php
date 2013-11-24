@@ -1,10 +1,14 @@
-<table>
+<table class="cars2">
 <?php
 foreach($query as $row)
 {
   
-  echo "<tr>
+  echo "
+        <tr>
             <td><h2>Overzicht $row->merk $row->type</h2></td>
+        </tr>
+        <tr>
+            <td><img src='".base_url()."assets/images/".$row->afbeelding."'</td>
         </tr>
         <tr>
             <td>Bouwjaar</td>

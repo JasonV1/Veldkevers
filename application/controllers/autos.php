@@ -13,7 +13,7 @@ class Autos extends CI_Controller {
         $this->load->view('footeronecolumn');
     }
     
-    public function auto(){
+    public function auto_view(){
         $this->load->view("headeronecolumn");
         $this->load->model('car_model'); 
         $data['query']=$this->car_model->get_car_data();
@@ -29,4 +29,5 @@ class Autos extends CI_Controller {
     }
     
 }
-?>
+/* End of file Autos.php */
+/* Location: ./application/controllers/autos.php */
