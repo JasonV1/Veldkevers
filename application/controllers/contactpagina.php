@@ -12,5 +12,5 @@ class Contactpagina extends CI_Controller {
         $this->load->view("footeronecolumn");
     }
 }
-/* End of file contact_class.php */
-/* Location: ./application/controllers/contact.php */
+/* End of file contactpagina.php */
+/* Location: ./application/controllers/contactpagina.php */

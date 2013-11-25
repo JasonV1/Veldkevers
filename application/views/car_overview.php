@@ -17,9 +17,15 @@ foreach($query as $row)
         <tr>
             <td>Prijs</td>
             <td>€$row->prijs</td>
+        </tr>
+        <tr>
+            <td>$row->filmpje</td>
+        </tr>
+        <tr>
+            <td><a href='".base_url()."index.php/afspraak/afspraak_view/$row->autoid'>Interesse? Maak een afspraak!</td>
+        </tr>
         ";
   echo "<br>";
 }?>
 </table>
 
-<?php echo $row->filmpje; ?>

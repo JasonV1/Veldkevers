@@ -28,9 +28,15 @@ class User extends CI_Controller{
  { 
   $emailadres=$this->input->post('emailadres');
   $wachtwoord=($this->input->post('wachtwoord'));
-
-  $result=$this->user_model->login($emailadres,$wachtwoord);
-  if($result) $this->welcome();
+  
+  $result=$this->user_model->login($emailadres, $wachtwoord);
+  if($result[0]->rol_id == 1){
+      redirect('klant/welcome_klant','refresh');
+  }
+  if($result[0]->rol_id == 4){
+      redirect('verkoper/welcome_verkoper','refresh');
+  }
+  
   else        $this->index();
  }
  public function thank()
@@ -77,7 +83,7 @@ class User extends CI_Controller{
   'user_email'     => '',
   'logged_in' => FALSE,
   );
-  $this->session->unset_userdata($newdata );
+  $this->session->unset_userdata($newdata);
   $this->session->sess_destroy();
   $this->index();
  }

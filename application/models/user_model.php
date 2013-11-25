@@ -4,25 +4,30 @@ class User_model extends CI_Model {
  {
   parent::__construct();
  }
- function login($emailadres,$wachtwoord)
+ function login($emailadres, $wachtwoord)
  {
-  $this->db->where("emailadres",$emailadres);
-  $this->db->where("wachtwoord",$wachtwoord);
-
-  $query=$this->db->get("gebruiker");
+  $this->db->select('*')
+           ->from('gebruiker')
+           ->join('gebruikersrol', 'gebruikersrol.rol_id = gebruiker.id')
+           ->where('gebruiker.emailadres', $emailadres)
+           ->where('gebruiker.wachtwoord', $wachtwoord);
+  
+  $query=$this->db->get();
   if($query->num_rows()>0)
   {
    foreach($query->result() as $rows)
    {
     //add all data to session
     $newdata = array(
+      'rol_id' => $rows->rol_id,
       'user_id'  => $rows->id,
       'emailadres'    => $rows->emailadres,
       'logged_in'  => TRUE,
     );
    }
-   $this->session->set_userdata($newdata);
-   return true;
+   $this->session->set_userdata("logged_in", $newdata);
+   return $query->result();
+   
   }
   return false;
  }

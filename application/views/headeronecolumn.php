@@ -33,11 +33,7 @@
 							
 							<!-- Nav -->
 								<nav id="nav">
-									<a href="<?php echo base_url(); ?>index.php">Home</a>
-									<a href="<?php echo base_url(); ?>index.php/contactpagina/contact">Contact</a>
-									<a href="<?php echo base_url(); ?>index.php/autos/auto_view">Auto's</a>
-									<a href="<?php echo base_url(); ?>index.php/user/registration_view">Registreren</a>
-                                                                        <a href="<?php echo base_url(); ?>index.php/user/login_view">Login</a>
+									<?php echo $this->load->view('link'); ?>
 								</nav>
 
 						</div>
