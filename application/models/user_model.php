@@ -6,13 +6,10 @@ class User_model extends CI_Model {
  }
  function login($emailadres, $wachtwoord)
  {
-  $this->db->select('*')
-           ->from('gebruiker')
-           ->join('gebruikersrol', 'gebruikersrol.rol_id = gebruiker.id')
-           ->where('gebruiker.emailadres', $emailadres)
-           ->where('gebruiker.wachtwoord', $wachtwoord);
-  
-  $query=$this->db->get();
+  $query = $this->db->query("SELECT * FROM `gebruiker` 
+                    LEFT JOIN `gebruikersrol` ON `id` = `gebruikersrol`.`gebruiker_id` 
+                    WHERE `gebruiker`.`emailadres` =  '".$emailadres."'
+                    AND `gebruiker`.`wachtwoord` = '".$wachtwoord."'");
   if($query->num_rows()>0)
   {
    foreach($query->result() as $rows)
@@ -29,7 +26,6 @@ class User_model extends CI_Model {
    return $query->result();
    
   }
-  return false;
  }
  public function add_klant()
  {

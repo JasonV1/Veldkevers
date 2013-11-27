@@ -36,14 +36,23 @@ class User extends CI_Controller{
   if($result[0]->rol_id == 4){
       redirect('verkoper/welcome_verkoper','refresh');
   }
-  
-  else        $this->index();
+  if($result[0]->rol_id == 5){
+      redirect('eigenaar/welcome_eigenaar','refresh');
+  }
+  if($result[0]->rol_id == 6){
+      redirect('chef/welcome_chef','refresh');
+  }
+  else        
+  {
+      $this->index();
+      
+  }
  }
  public function thank()
  {
   $data['title']= 'Thanks';
   $this->load->view('headeronecolumn',$data);
-  $this->load->view('login_view', $data);
+  $this->load->view('thank_view', $data);
   $this->load->view('footeronecolumn',$data);
  }
  
@@ -57,11 +66,11 @@ class User extends CI_Controller{
  {
   $this->load->library('form_validation');
   // field name, error message, validation rules
-  $this->form_validation->set_rules('voornaam', 'Voornaam', 'trim');
-  $this->form_validation->set_rules('achternaam', 'Achternaam', 'trim');
+  $this->form_validation->set_rules('voornaam', 'Voornaam', 'trim|required');
+  $this->form_validation->set_rules('achternaam', 'Achternaam', 'trim|required');
   $this->form_validation->set_rules('emailadres', 'E-mail', 'trim|required|valid_email');
   $this->form_validation->set_rules('telefoonnr', 'Telefoonnr', 'trim');
-  $this->form_validation->set_rules('adres', 'Adres', 'trim');
+  $this->form_validation->set_rules('adres', 'Adres', 'trim|required');
   $this->form_validation->set_rules('wachtwoord', 'Password', 'trim|required|min_length[4]|max_length[32]');
   $this->form_validation->set_rules('con_password', 'Password Confirmation', 'trim|required|matches[wachtwoord]');
 
@@ -73,6 +82,7 @@ class User extends CI_Controller{
   {
    $this->user_model->add_klant();
    $this->thank();
+   $this->output->set_header('refresh:3;url=login_view'); 
   }
  }
  public function logout()
@@ -88,4 +98,3 @@ class User extends CI_Controller{
   $this->index();
  }
 }
-?>

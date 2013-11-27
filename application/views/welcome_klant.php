@@ -1,1 +1,2 @@
-Dit is de klant pagina.
+Welkom terug!
+

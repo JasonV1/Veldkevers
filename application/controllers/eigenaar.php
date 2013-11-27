@@ -1,5 +1,5 @@
 <?php
-class Verkoper extends CI_Controller {
+class Eigenaar extends CI_Controller {
     public function __construct()
     {
      parent::__construct();
@@ -12,10 +12,10 @@ class Verkoper extends CI_Controller {
         $this->load->view('footeronecolumn');
     }
     
-    public function welcome_verkoper()
+    public function welcome_eigenaar()
     {
         $this->load->view('headeronecolumn');
-        $this->load->view('welcome_verkoper');
+        $this->load->view('welcome_eigenaar');
         $this->load->view('footeronecolumn');
     }
     
