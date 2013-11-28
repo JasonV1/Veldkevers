@@ -44,8 +44,8 @@ class User extends CI_Controller{
   }
   else        
   {
-      $this->index();
-      
+      echo "Login mislukt, probeer opnieuw";
+      $this->login_view();
   }
  }
  public function thank()
@@ -76,7 +76,9 @@ class User extends CI_Controller{
 
   if($this->form_validation->run() == FALSE)
   {
-   $this->index();
+   
+   echo "Registratie mislukt";
+   $this->registration_view();
   }
   else
   {

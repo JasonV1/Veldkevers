@@ -11,8 +11,6 @@
         position:absolute;
         float:right;
     }
-    
-    
 </style>
 
 <h2>Contact opnemen met garage Veldkevers</h2>

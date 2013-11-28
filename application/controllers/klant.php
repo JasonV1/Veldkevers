@@ -23,7 +23,8 @@ class Klant extends CI_Controller {
     public function personeelsleden()
     {
         $this->load->view('headeronecolumn');
-        $data['query']=$this->klant_model->get_salesmen_data();
+        $data['verkopers']=$this->klant_model->get_salesmen_data();
+        $data['chefs']=$this->klant_model->get_chef_data();
         $this->load->view('personeelsleden_view', $data);
         $this->load->view('footeronecolumn');
     }

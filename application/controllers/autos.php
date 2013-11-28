@@ -17,7 +17,7 @@ class Autos extends CI_Controller {
         $this->load->view("headeronecolumn");
         $this->load->model('car_model'); 
         $data['query']=$this->car_model->get_car_data();
-        $this->load->view('cars',$data);
+        $this->load->view('auto_view',$data);
         $this->load->view("footeronecolumn");
     }
     

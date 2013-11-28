@@ -7,9 +7,9 @@ class User_model extends CI_Model {
  function login($emailadres, $wachtwoord)
  {
   $query = $this->db->query("SELECT * FROM `gebruiker` 
-                    LEFT JOIN `gebruikersrol` ON `id` = `gebruikersrol`.`gebruiker_id` 
-                    WHERE `gebruiker`.`emailadres` =  '".$emailadres."'
-                    AND `gebruiker`.`wachtwoord` = '".$wachtwoord."'");
+                             LEFT JOIN `gebruikersrol` ON `id` = `gebruikersrol`.`gebruiker_id` 
+                             WHERE `gebruiker`.`emailadres` =  '".$emailadres."'
+                             AND `gebruiker`.`wachtwoord` = '".$wachtwoord."'");
   if($query->num_rows()>0)
   {
    foreach($query->result() as $rows)

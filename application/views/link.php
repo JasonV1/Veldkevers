@@ -23,7 +23,7 @@
             else if ($rol == 6)
             {
                 echo "<a href='".base_url()."index.php'>Home</a>";
-                echo "<a href='".base_url()."index.php/autos/auto_view'>Auto's</a>";
+                echo "<a href='".base_url()."index.php/chef/auto_view_chef'>Auto's</a>";
                 echo "<a href='logout'>Logout</a>";
             }
         }

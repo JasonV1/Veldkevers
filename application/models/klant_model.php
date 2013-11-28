@@ -13,6 +13,15 @@ class Klant_model extends CI_Model
                                 WHERE `gebruikersrol`.`rol_id` = 4");
        return $query->result();
   }
+  
+  public function get_chef_data()
+  {
+      $this->load->database();
+      $query=$this->db->query("SELECT DISTINCT * FROM `gebruiker`
+                               INNER JOIN `gebruikersrol` ON `gebruiker`.`id` = `gebruikersrol`.`gebruiker_id` 
+                               WHERE `gebruikersrol`.`rol_id` = 6");
+      return $query->result();
+  }
 }
 
 // End of file: klant_model.php
