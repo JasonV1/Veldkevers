@@ -10,13 +10,15 @@
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
-		<script src="js/jquery.min.js"></script>
-		<script src="js/config.js"></script>
-		<script src="js/skel.min.js"></script>
-		<script src="js/skel-panels.min.js"></script>
+                <script src="<?php echo asset_url(); ?>js/jquery-ui-1.10.3.custom.js"></script>
+                <script src="<?php echo asset_url(); ?>js/jquery-1.10.2.js"></script>
+		<script src="<?php echo asset_url(); ?>js/config.js"></script>
+		<script src="<?php echo asset_url(); ?>js/skel.min.js"></script>
+		<script src="<?php echo asset_url(); ?>js/skel-panels.min.js"></script>
 			<link rel="stylesheet" href="<?php echo asset_url(); ?>css/skel-noscript.css" />
 			<link rel="stylesheet" href="<?php echo asset_url(); ?>css/style.css" />
 			<link rel="stylesheet" href="<?php echo asset_url(); ?>css/style-desktop.css" />
+                        <link rel="stylesheet" href="<?php echo asset_url(); ?>css/jquery-ui-1.10.3.custom.css" />
 		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie9.css" /><![endif]-->
 		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
 	</head>

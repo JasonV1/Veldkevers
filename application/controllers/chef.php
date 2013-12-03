@@ -22,7 +22,6 @@ class Chef extends CI_Controller {
     
         public function auto_view_chef(){
         $this->load->view("headeronecolumn");
-        
         $data['query']=$this->chef_model->get_car_data();
         $this->load->view('auto_view_chef',$data);
         $this->load->view("footeronecolumn");
@@ -35,10 +34,11 @@ class Chef extends CI_Controller {
         $this->load->view("footeronecolumn");
     }
     
-    public function edit_car()
+    public function edit_car_view($id)
     {
         $this->load->view("headeronecolumn");
-        $this->load->view("edit_car");
+        $data['query']=$this->chef_model->get_car_data_by_id($id);
+        $this->load->view("edit_car", $data);
         $this->load->view("footeronecolumn");
     }
     
@@ -71,6 +71,31 @@ class Chef extends CI_Controller {
             echo "De auto is met succes toegevoegd.";
             $this->chef_model->add_car();
             $this->new_car_view();
+        }
+    }
+    
+    public function edit_car()
+    {
+        $this->load->library('form_validation');
+        // field name, error message, validation rules
+        
+        $this->form_validation->set_rules('merk', 'Merk', 'trim|required');
+        $this->form_validation->set_rules('type', 'Type', 'trim|required');
+        $this->form_validation->set_rules('bouwjaar', 'Bouwjaar', 'trim|required');
+        $this->form_validation->set_rules('prijs', 'Prijs', 'trim|required');
+        $this->form_validation->set_rules('afbeelding', 'Afbeelding', 'trim|required');
+        $this->form_validation->set_rules('filmpje', 'Filmpje', 'trim|required');
+        
+        if($this->form_validation->run() == FALSE)
+        {
+            echo "Kan auto niet wijzigen";
+            $this->auto_view_chef();
+        }
+        else
+        {
+            echo "De auto is met succes gewijzigd.";
+            $this->chef_model->edit_car($_POST);
+            $this->auto_view_chef();
         }
     }
     

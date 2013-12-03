@@ -24,7 +24,7 @@ foreach($query as $row)
             
         </tr>
         <tr>
-            <td><a href='".base_url()."index.php/chef/edit_car/$row->autoid'>Wijzigen</td>
+            <td><a href='".base_url()."index.php/chef/edit_car_view/$row->autoid'>Wijzigen</td>
         </td>
         <tr>
             <td><a href='".base_url()."index.php/chef/delete_car/$row->autoid'>Verwijderen</td>

@@ -41,7 +41,7 @@
                 <td><textarea id="filmpje" name="filmpje" rows="8" cols="40"></textarea></td>
             </tr>
             <tr>
-                <td><input type="submit" value="versturen" />
+                <td><input type="submit" value="versturen" /></td>
             </tr>
         </table>
 <?php echo form_close();

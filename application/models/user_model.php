@@ -19,6 +19,8 @@ class User_model extends CI_Model {
       'rol_id' => $rows->rol_id,
       'user_id'  => $rows->id,
       'emailadres'    => $rows->emailadres,
+      'voornaam' => $rows->voornaam,
+      'achternaam' => $rows->achternaam,
       'logged_in'  => TRUE,
     );
    }

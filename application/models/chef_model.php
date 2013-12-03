@@ -40,6 +40,21 @@ class Chef_model extends CI_Model
       $this->db->query("DELETE FROM `auto`
                         WHERE `autoid` = '".$id."'"); 
   }
+  
+  public function edit_car($post)
+  {
+    $this->load->database();
+    
+    $this->db->query("UPDATE `auto` SET `merk` = '".$post['merk']."',
+				 `type` = '".$post['type']."',
+				 `bouwjaar` = '".$post['bouwjaar']."',
+                                 `prijs` = '".$post['prijs']."',
+                                 `afbeelding` = '".$post['afbeelding']."',  
+                                 `filmpje` = '".$post['filmpje']."'    
+                               WHERE `autoid` = '".$post['autoid']."'");
+    
+    
+  }
 }
 
 // End of file chef_model.php

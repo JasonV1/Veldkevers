@@ -21,9 +21,6 @@ foreach($query as $row)
         <tr>
             <td>$row->filmpje</td>
         </tr>
-        <tr>
-            <td><a href='".base_url()."index.php/afspraak/afspraak_view/$row->autoid'>Interesse? Maak een afspraak!</td>
-        </tr>
         ";
   echo "<br>";
 }?>
