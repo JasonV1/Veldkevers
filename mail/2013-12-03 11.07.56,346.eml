@@ -1,0 +1,17 @@
+Date: Tue, 03 Dec 2013 10:07:56 +0000
+Subject: =?utf-8?Q?Email_Test?=
+To: jason.vdv.94@gmail.com
+X-PHP-Originating-Script: 0:Email.php
+From: "De Chef" <chef@veldkevers.nl>
+Return-Path: <chef@veldkevers.nl>
+Reply-To: "chef@veldkevers.nl" <chef@veldkevers.nl>
+X-Sender: chef@veldkevers.nl
+X-Mailer: CodeIgniter
+X-Priority: 3 (Normal)
+Message-ID: <529dad7c52082@veldkevers.nl>
+Mime-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 8bit
+
+Testing the email class.
+

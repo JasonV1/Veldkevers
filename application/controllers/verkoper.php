@@ -3,6 +3,7 @@ class Verkoper extends CI_Controller {
     public function __construct()
     {
      parent::__construct();
+     $this->load->model('verkoper_model');
     }
     
     public function index()
@@ -16,6 +17,14 @@ class Verkoper extends CI_Controller {
     {
         $this->load->view('headeronecolumn');
         $this->load->view('welcome_verkoper');
+        $this->load->view('footeronecolumn');
+    }
+    
+    public function afspraken()
+    {
+        $this->load->view('headeronecolumn');
+        $data['query']=$this->verkoper_model->get_afspraken();
+        $this->load->view('afspraken_view', $data);
         $this->load->view('footeronecolumn');
     }
     

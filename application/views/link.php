@@ -13,7 +13,7 @@
             else if ($rol == 4)
             {
                 echo "<a href='".base_url()."index.php/verkoper/welcome_verkoper'>Home</a>";
-                echo "<a href='".base_url()."index.php/autos/auto_view'>Auto's</a>";
+                echo "<a href='".base_url()."index.php/verkoper/afspraken'>Afspraken</a>";
                 echo "<a href='logout'>Logout</a>";
             }
             else if ($rol == 5)

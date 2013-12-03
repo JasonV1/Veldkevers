@@ -56,6 +56,8 @@ class Klant extends CI_Controller {
             $this->klant_model->afspraak_maken($_POST);
             $this->auto_view_klant();
         }
+        
+        
     }
     
     public function auto_view_klant(){

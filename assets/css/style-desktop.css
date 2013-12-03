@@ -255,4 +255,15 @@ table, th, td
     width:400px;
         
     }
-    
+.afspraken_tabel
+    table th
+    {
+    font-weight:bold;
+    margin: 12px 12px 12px 12px;
+    padding: 12px 12px 12px 12px;
+    }
+    table
+    {
+    border-collapse: separate;
+    border-spacing: 10px;
+    }
