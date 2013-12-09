@@ -55,6 +55,48 @@ class Chef_model extends CI_Model
     
     
   }
+  
+  public function edit_appointment($post)
+  {
+    $this->load->database();
+    
+    $this->db->query("UPDATE `afspraak` SET `datum` = '".$post['datum']."',
+				 `tijd` = '".$post['tijd']."',
+				 `bevestigd` = '".$post['bevestigd']."'   
+                               WHERE `afspraaknr` = '".$post['afspraaknr']."'");
+    
+    
+  }
+  
+  public function get_afspraken()
+  {
+      $this->load->database();
+      $query = $this->db->query("SELECT * FROM `afspraak`
+                                 INNER JOIN `gebruiker` ON `afspraak`.`gebruiker_id` = `gebruiker`.`id`
+                                 ORDER BY `afspraak`.`datum`, `afspraak`.`tijd`");
+      
+      return $query->result();
+  }
+  
+  public function get_adressen()
+  {
+      $this->load->database();
+      $query = $this->db->query("SELECT DISTINCT * FROM `gebruiker`
+                                INNER JOIN `gebruikersrol` ON `gebruiker`.`id` = `gebruikersrol`.`gebruiker_id` 
+                                WHERE `gebruikersrol`.`rol_id` = 1");
+      return $query->result();
+  }
+  
+  public function get_appointment_data($id)
+  {
+      $this->load->database();
+      
+      $query = $this->db->query("SELECT * FROM `afspraak`, `gebruiker`
+                                 WHERE `afspraak`.`afspraaknr` = '".$id."'
+                                 AND `afspraak`.`gebruiker_id` = `gebruiker`.`id`
+                                 ");
+      return $query->result();
+  }
 }
 
 // End of file chef_model.php

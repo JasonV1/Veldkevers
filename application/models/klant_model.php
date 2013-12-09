@@ -48,7 +48,7 @@ class Klant_model extends CI_Model
       return $query->result();
   }
   
-  public function afspraak_maken($post)
+  public function afspraak_maken($post, $random)
   {
       $this->load->database();
       
@@ -57,13 +57,26 @@ class Klant_model extends CI_Model
                                                          `gebruiker_id`,
                                                          `datum`,
                                                          `tijd`,
-                                                         `bevestigd`)
+                                                         `bevestigd`,
+                                                         `random`)
                                                 VALUES  (NULL,
                                                          '".$post['autoid']."',
                                                          '".$this->session->userdata["logged_in"]["user_id"]."',
                                                          '".$post['datum']."',
                                                          '".$post['tijd']."',
-                                                         'nee')");
+                                                         'nee',
+                                                         '".$random."')");
+  }
+  
+  public function update_appointment()
+  {
+    $rand = $this->input->get('random');
+    $this->db->where('random',$rand);
+    $data = array(
+    'bevestigd' => 'ja',
+    );
+    return $this->db->update('afspraak', $data);
+
   }
 }
 

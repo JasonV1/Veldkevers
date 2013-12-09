@@ -267,3 +267,8 @@ table, th, td
     border-collapse: separate;
     border-spacing: 10px;
     }
+    
+@media print
+{
+    .noprint {display:none;}
+}

@@ -42,6 +42,14 @@ class Chef extends CI_Controller {
         $this->load->view("footeronecolumn");
     }
     
+    public function edit_appointment_view($id)
+    {
+        $this->load->view("headeronecolumn");
+        $data['query']=$this->chef_model->get_appointment_data($id);
+        $this->load->view("edit_appointment", $data);
+        $this->load->view("footeronecolumn");
+    }
+    
     public function new_car_view()
     {
         $this->load->view("headeronecolumn");
@@ -104,7 +112,71 @@ class Chef extends CI_Controller {
         $this->chef_model->delete_car($id);
         $this->auto_view_chef();
     }
+    
+    public function afspraken()
+    {
+        $this->load->view('headeronecolumn');
+        $data['query']=$this->chef_model->get_afspraken();
+        $this->load->view('afspraken_view_chef', $data);
+        $this->load->view('footeronecolumn');
+    }
 
+    public function adressen()
+    {
+        $this->load->view('headeronecolumn');
+        $data['query']=$this->chef_model->get_adressen();
+        $this->load->view('adressen_view', $data);
+        $this->load->view('footeronecolumn');
+    }
+    
+    public function adressen_word()
+    {
+        
+        // Load the library  
+        $this->load->library('labels');  
+
+        // Specify the format  
+        $config['format'] = 'word';  
+        // Specify the address layout, using HTML <br /> tags to determine line breaks  
+        // The elements listed here become the address array keys (see below)  
+        $config['layout'] = "voornaam achternaam<br />straatnaam<br />";  
+        $this->labels->initialize($config);  
+
+        // List the addresses to used on the labels  
+        // Notice how the array keys correpond to the 'layout' element above  
+        
+        $addresses = array(  
+           array(  
+               'voornaam'=>'Hallo',  
+               'achternaam'=>'Marks',  
+               'straatnaam'=>'22 Sweet Avenue' 
+           )
+        ); 
+
+        $this->labels->output($addresses);  
+    }
+    
+    public function edit_appointment()
+    {
+        $this->load->library('form_validation');
+        // field name, error message, validation rules
+        
+        $this->form_validation->set_rules('datum', 'Datum', 'trim|required');
+        $this->form_validation->set_rules('tijd', 'Tijd', 'trim|required');
+        $this->form_validation->set_rules('bevestigd', 'Bevestigd', 'trim|required');
+        
+        if($this->form_validation->run() == FALSE)
+        {
+            echo "Kan afspraak niet wijzigen";
+            $this->afspraken();
+        }
+        else
+        {
+            echo "De afspraak is met succes gewijzigd.";
+            $this->chef_model->edit_appointment($_POST);
+            $this->afspraken();
+        }
+    }
     
     public function logout()
     {

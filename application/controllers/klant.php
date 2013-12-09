@@ -53,11 +53,34 @@ class Klant extends CI_Controller {
         else
         {
             echo "Afspraak is gemaakt. Ga naar uw mail om deze te bevestigen.";
-            $this->klant_model->afspraak_maken($_POST);
+            $random = random_string('unique');
+            $this->klant_model->afspraak_maken($_POST, $random);
+            $this->load->library('email');
+
+            $this->email->from('no-reply@veldkevers.nl', 'Garage veldkevers');
+            $this->email->to($this->session->userdata["logged_in"]["emailadres"]); 
+            
+            $this->email->subject('Bevestigen afspraak');
+            $this->email->message('Geachte klant,
+                                   
+                                   Bedankt voor het maken van een afspraak! 
+                                   Please click this link to activate your account:
+                                   http://localhost/veldkevers/index.php/klant/afspraak_bevestigen?random='.$random.'');	
+
+            $this->email->send();
+
             $this->auto_view_klant();
         }
         
         
+    }
+    
+    public function afspraak_bevestigen()
+    {
+        $this->klant_model->update_appointment();
+        $this->load->view('headeronecolumn');
+        $this->load->view('afspraak_bevestigen');
+        $this->load->view('footeronecolumn');
     }
     
     public function auto_view_klant(){

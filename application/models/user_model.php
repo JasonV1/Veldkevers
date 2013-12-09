@@ -37,7 +37,10 @@ class User_model extends CI_Model {
     'achternaam'=>$this->input->post('achternaam'),
     'emailadres'=>$this->input->post('emailadres'),
     'telefoonnr'=>$this->input->post('telefoonnr'),
-    'adres'=>$this->input->post('adres'),
+    'straatnaam'=>$this->input->post('straatnaam'),
+    'huisnummer'=>$this->input->post('huisnummer'),
+    'postcode'=>$this->input->post('postcode'),
+    'woonplaats'=>$this->input->post('woonplaats'),
     'wachtwoord'=>($this->input->post('wachtwoord'))
    );
   

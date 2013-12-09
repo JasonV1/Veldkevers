@@ -1,0 +1,22 @@
+Date: Sun, 08 Dec 2013 19:18:38 +0000
+Subject: =?utf-8?Q?Bevestigen_afspraak?=
+To: nick@mail.com
+X-PHP-Originating-Script: 0:Email.php
+From: "Wij hebben geen naam" <info@veldkevers.nl>
+Return-Path: <info@veldkevers.nl>
+Reply-To: "info@veldkevers.nl" <info@veldkevers.nl>
+X-Sender: info@veldkevers.nl
+X-Mailer: CodeIgniter
+X-Priority: 3 (Normal)
+Message-ID: <52a4c60e13c4b@veldkevers.nl>
+Mime-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 8bit
+
+Geachte klant,
+ 
+ Bedankt voor het maken van een afspraak! 
+ Please click this link to activate your account:
+ localhost/veldkevers/index.php/klant/afspraak_bevestigen?random=740f62f5b1
+841539cb33c9133e382e23
+

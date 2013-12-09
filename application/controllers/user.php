@@ -70,7 +70,10 @@ class User extends CI_Controller{
   $this->form_validation->set_rules('achternaam', 'Achternaam', 'trim|required');
   $this->form_validation->set_rules('emailadres', 'E-mail', 'trim|required|valid_email');
   $this->form_validation->set_rules('telefoonnr', 'Telefoonnr', 'trim');
-  $this->form_validation->set_rules('adres', 'Adres', 'trim|required');
+  $this->form_validation->set_rules('straatnaam', 'Straatnaam', 'trim|required');
+  $this->form_validation->set_rules('huisnummer', 'Huisnummer', 'trim|required');
+  $this->form_validation->set_rules('postcode', 'Postcode', 'trim|required');
+  $this->form_validation->set_rules('woonplaats', 'Woonplaats', 'trim|required');
   $this->form_validation->set_rules('wachtwoord', 'Password', 'trim|required|min_length[4]|max_length[32]');
   $this->form_validation->set_rules('con_password', 'Password Confirmation', 'trim|required|matches[wachtwoord]');
 

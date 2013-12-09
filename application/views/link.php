@@ -25,6 +25,8 @@
             {
                 echo "<a href='".base_url()."index.php/chef/welcome_chef'>Home</a>";
                 echo "<a href='".base_url()."index.php/chef/auto_view_chef'>Auto's</a>";
+                echo "<a href='".base_url()."index.php/chef/afspraken'>Afspraken</a>";
+                echo "<a href='".base_url()."index.php/chef/adressen'>Adressen</a>";
                 echo "<a href='logout'>Logout</a>";
             }
         }

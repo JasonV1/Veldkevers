@@ -28,10 +28,23 @@
                 <td><input type="text" id="telefoonnr" name="telefoonnr" value="<?php echo set_value('telefoonnr'); ?>" /></td>
             </tr>
             <tr>
-                <td>Adres*</td>
+                <td>Adres (straatnaam + huisnr)*</td>
             </tr>
             <tr>
-                <td><input type="text" id="adres" name="adres" value="<?php echo set_value('adres'); ?>" /></td>
+                <td><input type="text" id="straatnaam" name="straatnaam" value="<?php echo set_value('straatnaam'); ?>" /></td>
+                <td><input type="text" id="huisnummer" name="huisnummer" style="width: 30px;" value="<?php echo set_value('huisnummer'); ?>" /></td>
+            </tr>
+            <tr>
+                <td>Postcode</td>
+            </tr>
+            <tr>
+                <td><input type="text" id="postcode" name="postcode" value="<?php echo set_value('postcode'); ?>" /></td>
+            </tr>
+            <tr>
+                <td>Woonplaats</td>
+            </tr>
+            <tr>
+                <td><input type="text" id="woonplaats" name="woonplaats" value="<?php echo set_value('woonplaats'); ?>" /></td>
             </tr>
             <tr>
                 <td>Wachtwoord*</td>
@@ -50,3 +63,4 @@
             </tr>
         </table>
 <?php echo form_close(); ?>
+* = verplicht veld

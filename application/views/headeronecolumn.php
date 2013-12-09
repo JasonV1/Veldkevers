@@ -25,6 +25,7 @@
 	<body class="subpage">
 	
 		<!-- Header -->
+                <div class='noprint'>
 			<div id="header-wrapper">
 				<header id="header" class="container">
 					<div class="row">
@@ -42,7 +43,7 @@
 					</div>
 				</header>
 			</div>
-
+                </div>
 		<!-- Content -->
 			<div id="content-wrapper">
 				<div id="content">

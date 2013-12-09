@@ -1,3 +1,6 @@
+De makkelijkste manier om een afspraak te maken is per mail.<br />
+U kunt één van onze verkopers mailen (mailadressen van de verkopers vind u op de 'Personeelsleden' pagina) voor een afspraak.
+
 <?php echo form_open("klant/afspraak_maken"); ?>
         <table>
             <?php
@@ -20,7 +23,7 @@
                       </tr>
                       <tr>
                           <td>Dag</td>
-                          <td><input type="date" name="datum" id="datepicker1" class="hasDatepicker"></td>
+                          <td><input type="date" name="datum" id="datepicker1"></td>
                       </tr>
                       <tr>
                           <td>Tijd</td>
@@ -34,3 +37,4 @@
 echo form_close(); 
 ?>
 </table>
+

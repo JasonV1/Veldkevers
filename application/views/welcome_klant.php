@@ -1,1 +1,1 @@
-Welkom terug!
+Welkom terug, <?php echo $this->session->userdata["logged_in"]["voornaam"]; ?>!
