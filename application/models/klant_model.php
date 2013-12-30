@@ -53,19 +53,19 @@ class Klant_model extends CI_Model
       $this->load->database();
       
       $this->db->query("INSERT INTO `afspraak` (`afspraaknr`,
-                                                         `autoid`,
-                                                         `gebruiker_id`,
-                                                         `datum`,
-                                                         `tijd`,
-                                                         `bevestigd`,
-                                                         `random`)
-                                                VALUES  (NULL,
-                                                         '".$post['autoid']."',
-                                                         '".$this->session->userdata["logged_in"]["user_id"]."',
-                                                         '".$post['datum']."',
-                                                         '".$post['tijd']."',
-                                                         'nee',
-                                                         '".$random."')");
+                                                           `autoid`,
+                                                           `gebruiker_id`,
+                                                           `datum`,
+                                                           `tijd`,
+                                                           `bevestigd`,
+                                                           `random`)
+                                                  VALUES  (NULL,
+                                                           '".$post['autoid']."',
+                                                           '".$this->session->userdata["logged_in"]["user_id"]."',
+                                                           '".$post['datum']."',
+                                                           '".$post['tijd']."',
+                                                           'nee',
+                                                           '".$random."')");
   }
   
   public function update_appointment()

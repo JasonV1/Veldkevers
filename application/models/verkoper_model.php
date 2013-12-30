@@ -29,10 +29,13 @@ class Verkoper_model extends CI_Model
   {
      $this->load->database();
      $return[''] = 'Selecteer een naam';
-     $this->db->order_by('voornaam'); 
-     $query = $this->db->get('gebruiker'); 
+     $query = $this->db->query("SELECT * FROM `gebruiker`
+                                LEFT JOIN `gebruikersrol` ON `id` = `gebruikersrol`.`gebruiker_id` 
+                                WHERE `gebruikersrol`.`rol_id` = 1
+                                ORDER BY `gebruiker`.`achternaam`
+                                ");
      foreach($query->result_array() as $row){
-         $return[$row['id']] = $row['voornaam'];
+         $return[$row['id']] = $row['achternaam'];
      }
      return $return;
   }
@@ -44,13 +47,17 @@ class Verkoper_model extends CI_Model
       $this->db->query("INSERT INTO `eigenaar` (`id`,
                                                          `autoid`,
                                                          `gekocht`,
-                                                         `herinnering`,
-                                                         `verkoper_id`)
-                                                VALUES  ('".$post['voornaam']."',
+                                                         `herinnering`)
+                                                VALUES  ('".$post['achternaam']."',
                                                          '".$post['autoid']."',
                                                          '".$post['gekocht']."',
-                                                         '".$post['herinnering']."',
-                                                         '".$this->session->userdata["logged_in"]["user_id"]."')");
+                                                         '".$post['herinnering']."')");
+      
+      $this->db->query("UPDATE `gebruikersrol` SET `rol_id` = 5
+                        WHERE `gebruiker_id` = ".$post['achternaam']."");
+      
+      
+ 
   }
 }
 // End of file verkoper_model.php

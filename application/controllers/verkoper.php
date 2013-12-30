@@ -33,7 +33,7 @@ class Verkoper extends CI_Controller {
     {
         $this->load->view('headeronecolumn');
         $data['car_data']=$this->verkoper_model->get_car_data_by_id($id);
-        $data['voornaam']=$this->verkoper_model->get_user_data();
+        $data['achternaam']=$this->verkoper_model->get_user_data();
         $this->load->view('koppel_auto_view', $data);
         $this->load->view('footeronecolumn');
     }
@@ -43,13 +43,15 @@ class Verkoper extends CI_Controller {
         $this->load->library('form_validation');
         // field name, error message, validation rules
         
-        $this->form_validation->set_rules('voornaam', 'Voornaam', 'required');
+        $this->form_validation->set_rules('achternaam', 'Achternaam', 'required');
         $this->form_validation->set_rules('gekocht', 'Gekocht', 'required');
         $this->form_validation->set_rules('herinnering', 'Herinnering', 'required');
+        
         
         if($this->form_validation->run() == FALSE)
         {
             echo "Kan auto niet koppelen";
+            
             $this->auto_view_verkoper();
         }
         else

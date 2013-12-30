@@ -8,9 +8,9 @@ foreach($car_data as $row)
             <td><h2><?php echo $row->merk; ?> <?php echo $row->type; ?> koppelen aan klant</h2></td>
         </tr>
         <tr>
-            <td>Naam eigenaar</td>
+            <td>Naam eigenaar (achternaam)</td>
             <td>
-                <?php echo form_dropdown('voornaam', $voornaam); ?>
+                <?php echo form_dropdown('achternaam', $achternaam); ?>
             </td>
         </tr>
         <tr>

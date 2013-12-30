@@ -19,6 +19,7 @@
             else if ($rol == 5)
             {
                 echo "<a href='".base_url()."index.php/eigenaar/welcome_eigenaar'>Home</a>";
+                echo "<a href='".base_url()."index.php/eigenaar/auto_eigenaar'>Mijn Auto</a>";
                 echo "<a href='".base_url()."index.php/user/logout'>Logout</a>";
             }
             else if ($rol == 6)

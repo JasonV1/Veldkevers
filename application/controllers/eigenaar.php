@@ -3,6 +3,7 @@ class Eigenaar extends CI_Controller {
     public function __construct()
     {
      parent::__construct();
+     $this->load->model('eigenaar_model');
     }
     
     public function index()
@@ -16,6 +17,14 @@ class Eigenaar extends CI_Controller {
     {
         $this->load->view('headeronecolumn');
         $this->load->view('welcome_eigenaar');
+        $this->load->view('footeronecolumn');
+    }
+    
+    public function auto_eigenaar()
+    {
+        $this->load->view('headeronecolumn');
+        $data['car_data']=$this->eigenaar_model->get_owner_car_data();
+        $this->load->view('auto_eigenaar', $data);
         $this->load->view('footeronecolumn');
     }
     

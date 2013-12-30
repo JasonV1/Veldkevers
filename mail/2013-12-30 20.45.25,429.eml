@@ -1,0 +1,21 @@
+Date: Mon, 30 Dec 2013 19:45:25 +0000
+Subject: =?utf-8?Q?Bevestigen_afspraak?=
+To: testerdetest@test.com
+X-PHP-Originating-Script: 0:Email.php
+From: "Garage veldkevers" <no-reply@veldkevers.nl>
+Return-Path: <no-reply@veldkevers.nl>
+Reply-To: "no-reply@veldkevers.nl" <no-reply@veldkevers.nl>
+X-Sender: no-reply@veldkevers.nl
+X-Mailer: CodeIgniter
+X-Priority: 3 (Normal)
+Message-ID: <52c1cd5567b4d@veldkevers.nl>
+Mime-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 8bit
+
+Geachte klant,
+ 
+ Bedankt voor het maken van een afspraak! 
+ Please click this link to activate your account:
+ http://localhost/veldkevers/index.php/klant/afspraak_bevestigen?random=9ca2e52c131c3e77f14e98275fa54feb
+
