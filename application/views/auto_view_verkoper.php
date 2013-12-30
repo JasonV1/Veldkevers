@@ -21,6 +21,9 @@ foreach($query as $row)
         <tr>
             <td><a href='".base_url()."index.php/autos/auto_overzicht/$row->autoid'>Meer info</td>
         </tr>
+        <tr>
+            <td><a href='".base_url()."index.php/verkoper/koppel_auto/$row->autoid'>Koppel auto aan klant</td>
+        </tr>
         ";
   echo "<br>";
 }?>

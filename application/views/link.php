@@ -1,4 +1,3 @@
-
 <?php if ($this->session->userdata("logged_in"))
         {
             $rol = $this->session->userdata["logged_in"]["rol_id"];
@@ -8,18 +7,19 @@
                 echo "<a href='".base_url()."index.php/klant/welcome_klant'>Home</a>";
                 echo "<a href='".base_url()."index.php/klant/personeelsleden'>Personeelsleden</a>";
                 echo "<a href='".base_url()."index.php/klant/auto_view_klant'>Auto's</a>";
-                echo "<a href='logout'>Logout</a>";
+                echo "<a href='".base_url()."index.php/user/logout'>Logout</a>";
             }
             else if ($rol == 4)
             {
                 echo "<a href='".base_url()."index.php/verkoper/welcome_verkoper'>Home</a>";
                 echo "<a href='".base_url()."index.php/verkoper/afspraken'>Afspraken</a>";
-                echo "<a href='logout'>Logout</a>";
+                echo "<a href='".base_url()."index.php/verkoper/auto_view_verkoper'>Auto's</a>";
+                echo "<a href='".base_url()."index.php/user/logout'>Logout</a>";
             }
             else if ($rol == 5)
             {
                 echo "<a href='".base_url()."index.php/eigenaar/welcome_eigenaar'>Home</a>";
-                echo "<a href='logout'>Logout</a>";
+                echo "<a href='".base_url()."index.php/user/logout'>Logout</a>";
             }
             else if ($rol == 6)
             {
@@ -27,7 +27,7 @@
                 echo "<a href='".base_url()."index.php/chef/auto_view_chef'>Auto's</a>";
                 echo "<a href='".base_url()."index.php/chef/afspraken'>Afspraken</a>";
                 echo "<a href='".base_url()."index.php/chef/adressen'>Adressen</a>";
-                echo "<a href='logout'>Logout</a>";
+                echo "<a href='".base_url()."index.php/user/logout'>Logout</a>";
             }
         }
             else 

@@ -4,6 +4,7 @@ class Verkoper extends CI_Controller {
     {
      parent::__construct();
      $this->load->model('verkoper_model');
+     $this->load->model('car_model');
     }
     
     public function index()
@@ -18,6 +19,45 @@ class Verkoper extends CI_Controller {
         $this->load->view('headeronecolumn');
         $this->load->view('welcome_verkoper');
         $this->load->view('footeronecolumn');
+    }
+    
+    public function auto_view_verkoper()
+    {
+        $this->load->view('headeronecolumn');
+        $data['query']=$this->car_model->get_car_data();
+        $this->load->view('auto_view_verkoper',$data);
+        $this->load->view('footeronecolumn');
+    }
+    
+    public function koppel_auto($id)
+    {
+        $this->load->view('headeronecolumn');
+        $data['car_data']=$this->verkoper_model->get_car_data_by_id($id);
+        $data['voornaam']=$this->verkoper_model->get_user_data();
+        $this->load->view('koppel_auto_view', $data);
+        $this->load->view('footeronecolumn');
+    }
+    
+    public function make_new_owner()
+    {
+        $this->load->library('form_validation');
+        // field name, error message, validation rules
+        
+        $this->form_validation->set_rules('voornaam', 'Voornaam', 'required');
+        $this->form_validation->set_rules('gekocht', 'Gekocht', 'required');
+        $this->form_validation->set_rules('herinnering', 'Herinnering', 'required');
+        
+        if($this->form_validation->run() == FALSE)
+        {
+            echo "Kan auto niet koppelen";
+            $this->auto_view_verkoper();
+        }
+        else
+        {
+            echo "De auto is met succes gekoppeld.";
+            $this->verkoper_model->make_new_owner($_POST);
+            $this->auto_view_verkoper();
+        }
     }
     
     public function afspraken()

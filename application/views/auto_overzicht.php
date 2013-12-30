@@ -1,3 +1,5 @@
+
+
 <table class="cars2">
 <?php
 foreach($query as $row)
