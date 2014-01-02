@@ -1,0 +1,21 @@
+Date: Thu, 02 Jan 2014 20:43:32 +0000
+Subject: =?utf-8?Q?Bevestigen_afspraak?=
+To: phgeuljans@gmail.com
+X-PHP-Originating-Script: 0:Email.php
+From: "Garage veldkevers" <no-reply@veldkevers.nl>
+Return-Path: <no-reply@veldkevers.nl>
+Reply-To: "no-reply@veldkevers.nl" <no-reply@veldkevers.nl>
+X-Sender: no-reply@veldkevers.nl
+X-Mailer: CodeIgniter
+X-Priority: 3 (Normal)
+Message-ID: <52c5cf743a367@veldkevers.nl>
+Mime-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 8bit
+
+Geachte klant,
+ 
+ Bedankt voor het maken van een afspraak! 
+ Gelieve hier te klikken om deze te bevestigen:
+ http://localhost/veldkevers/index.php/eigenaar/afspraak_bevestigen?random=f03e278a5d4954246c4e52966f1619b2
+

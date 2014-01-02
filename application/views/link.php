@@ -7,6 +7,7 @@
                 echo "<a href='".base_url()."index.php/klant/welcome_klant'>Home</a>";
                 echo "<a href='".base_url()."index.php/klant/personeelsleden'>Personeelsleden</a>";
                 echo "<a href='".base_url()."index.php/klant/auto_view_klant'>Auto's</a>";
+                echo "<a href='".base_url()."index.php/klant/bekijk_afspraken'>Bekijk afspraken</a>";
                 echo "<a href='".base_url()."index.php/user/logout'>Logout</a>";
             }
             else if ($rol == 4)

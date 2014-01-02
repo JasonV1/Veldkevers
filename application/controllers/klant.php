@@ -64,7 +64,7 @@ class Klant extends CI_Controller {
             $this->email->message('Geachte klant,
                                    
                                    Bedankt voor het maken van een afspraak! 
-                                   Please click this link to activate your account:
+                                   Gelieve hier te klikken om deze te bevestigen:
                                    http://localhost/veldkevers/index.php/klant/afspraak_bevestigen?random='.$random.'');	
 
             $this->email->send();
@@ -98,17 +98,12 @@ class Klant extends CI_Controller {
         $this->load->view("footeronecolumn");
     }
     
-    public function logout()
+    public function bekijk_afspraken()
     {
-     $newdata = array(
-     'user_id'   =>'',
-     'user_name'  =>'',
-     'user_email'     => '',
-     'logged_in' => FALSE,
-     );
-     $this->session->unset_userdata($newdata );
-     $this->session->sess_destroy();
-     $this->index();
+        $this->load->view('headeronecolumn');
+        $data['afspraken']=$this->klant_model->view_appointments();
+        $this->load->view('bekijk_afspraken', $data);
+        $this->load->view('footeronecolumn');
     }
 }
 

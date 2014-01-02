@@ -78,6 +78,14 @@ class Klant_model extends CI_Model
     return $this->db->update('afspraak', $data);
 
   }
+  
+  public function view_appointments()
+  {
+      $query = $this->db->query("SELECT * FROM `afspraak`
+                                 WHERE `gebruiker_id` = '".$this->session->userdata["logged_in"]["user_id"]."'");
+      
+      return $query->result();
+  }
 }
 
 // End of file: klant_model.php
