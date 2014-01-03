@@ -56,6 +56,8 @@ class Verkoper_model extends CI_Model
       $this->db->query("UPDATE `gebruikersrol` SET `rol_id` = 5
                         WHERE `gebruiker_id` = ".$post['achternaam']."");
       
+      $this->db->query("UPDATE `auto` SET `verkocht` = 'ja'
+                        WHERE `autoid` = ".$post['autoid']."");
       
  
   }

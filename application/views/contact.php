@@ -16,37 +16,37 @@
 <h2>Contact opnemen met garage Veldkevers</h2>
 
 <div id="form">
-    <form method="post" action="">
+    <?php echo form_open('contactpagina/contactform'); ?>
         <table>
             <tr>
                 <td>Voornaam</td>
             </tr>
             <tr>
-                <td><input type="text" name="voornaam" /></td>
+                <td><input type="text" id="voornaam" name="voornaam" /></td>
             </tr>
             <tr>
                 <td>Achternaam</td>
             </tr>
             <tr>
-                <td><input type="text" name="achternaam" /></td>
+                <td><input type="text" id="achternaam" name="achternaam" /></td>
             </tr>
             <tr>
                 <td>E-mailadres</td>
             </tr>
             <tr>
-                <td><input type="text" name="mail" /></td>
+                <td><input type="text" id="emailadres" name="emailadres" /></td>
             </tr>
             <tr>
                 <td>Vraag</td>
             </tr>
             <tr>
-                <td><textarea rows="8" cols="40"></textarea></td>
+                <td><textarea rows="8" id="vraag" name="vraag" cols="40"></textarea></td>
             </tr>
             <tr>
                 <td><input type="submit" value="versturen" />
             </tr>
         </table>
-    </form>
+    <?php echo form_close(); ?>
 </div>
 
 <div id="column2">
@@ -91,11 +91,11 @@
         </tr>
         <tr>
             <td>Straat</td>
-            <td>Keverweg 6</td>
+            <td>Markstraat 31</td>
         </tr>
         <tr>
             <td>Postcode &nbsp;</td>
-            <td>3461 AH</td>
+            <td>5401 Uden</td>
         </tr>
     </table>
     <br />

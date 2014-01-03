@@ -20,9 +20,12 @@ foreach($query as $row)
             <td>€$row->prijs</td>
         </tr>
         <tr>
+            <td>Verkocht</td>
+            <td>$row->verkocht</td>
+        </tr>
+        <tr>
             <td><a href='".base_url()."index.php/klant/auto_overzicht_klant/$row->autoid'>Meer info</td>
         </tr>
         ";
-  echo "<br>";
 }?>
 </table>
