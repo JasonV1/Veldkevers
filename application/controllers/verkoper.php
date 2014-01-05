@@ -21,10 +21,17 @@ class Verkoper extends CI_Controller {
         $this->load->view('footeronecolumn');
     }
     
+    public function cancel_appointment()
+    {
+        $this->load->view('headeronecolumn');
+        $this->load->view('cancel_appointment');
+        $this->load->view('footeronecolumn');
+    }
+    
     public function auto_view_verkoper()
     {
         $this->load->view('headeronecolumn');
-        $data['query']=$this->car_model->get_car_data();
+        $data['query']=$this->verkoper_model->get_car_data();
         $this->load->view('auto_view_verkoper',$data);
         $this->load->view('footeronecolumn');
     }

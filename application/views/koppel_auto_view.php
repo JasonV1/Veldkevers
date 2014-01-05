@@ -21,10 +21,6 @@ foreach($car_data as $row)
             <td><input type='date' name='gekocht' id='gekocht' /></td>
         </tr>
         <tr>
-            <td>Herinnering</td>
-            <td><input type='datetime-local' name='herinnering' id='herinnering' /></td>
-        </tr>
-        <tr>
             <td><input type="submit" value="Auto koppelen" /></td>
         </tr>
 

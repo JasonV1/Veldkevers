@@ -40,6 +40,14 @@ class Verkoper_model extends CI_Model
      return $return;
   }
   
+  public function get_car_data()
+  {
+       $this->load->database();
+       $query = $this->db->query("SELECT * FROM `auto`
+                                  WHERE `verkocht` = 'nee'");
+       return $query->result();    
+  }
+  
   public function make_new_owner($post)
   {
       $this->load->database();

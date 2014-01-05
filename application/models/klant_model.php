@@ -26,9 +26,11 @@ class Klant_model extends CI_Model
   public function get_car_data()
   {
        $this->load->database();
-       $query=$this->db->get('auto');
-       return $query->result();
+       $query = $this->db->query("SELECT * FROM `auto`
+                                  WHERE `verkocht` = 'nee'");
+       return $query->result();    
   }
+  
   
   public function get_car_data_by_id($id)
   {
@@ -41,6 +43,7 @@ class Klant_model extends CI_Model
   public function get_appointment_info($id)
   {
       $this->load->database();
+      
       $query = $this->db->query("SELECT * FROM `gebruiker`, `auto`
                                  WHERE `auto`.`autoid` = '".$id."'
                                  AND `gebruiker`.`emailadres` = '".$this->session->userdata["logged_in"]["emailadres"]."'
@@ -52,7 +55,13 @@ class Klant_model extends CI_Model
   {
       $this->load->database();
       
-      $this->db->query("INSERT INTO `afspraak` (`afspraaknr`,
+      
+      $today = date('Y-m-d');
+      $query = $this->db->query("SELECT * FROM `afspraak`
+                                 WHERE `datum` = '".$today."'");
+      
+      if ($query->num_rows() > 0) {
+        $this->db->query("INSERT INTO `afspraak` (`afspraaknr`,
                                                            `autoid`,
                                                            `gebruiker_id`,
                                                            `datum`,
@@ -66,6 +75,14 @@ class Klant_model extends CI_Model
                                                            '".$post['tijd']."',
                                                            'nee',
                                                            '".$random."')");
+        } else {
+            echo "De geselecteerde datum ligt in het verleden";
+            return false;
+        }
+      
+      
+      
+      
   }
   
   public function update_appointment()

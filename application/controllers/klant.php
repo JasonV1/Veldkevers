@@ -37,6 +37,8 @@ class Klant extends CI_Controller {
         $this->load->view('footeronecolumn');
     }
     
+    
+    
     public function afspraak_maken()
     {
         $this->load->library('form_validation');
@@ -74,6 +76,7 @@ class Klant extends CI_Controller {
         
         
     }
+    
     
     public function afspraak_bevestigen()
     {

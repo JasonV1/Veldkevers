@@ -1,5 +1,5 @@
 
-<h2>Overzicht auto's</h2>
+<h2>Overzicht beschikbare auto's</h2>
 <table class="cars">
 <?php
 foreach($query as $row)
@@ -18,10 +18,6 @@ foreach($query as $row)
         <tr>
             <td>Prijs</td>
             <td>€$row->prijs</td>
-        </tr>
-        <tr>
-            <td>Verkocht</td>
-            <td>$row->verkocht</td>
         </tr>
         <tr>
             <td><a href='".base_url()."index.php/klant/auto_overzicht_klant/$row->autoid'>Meer info</td>

@@ -21,6 +21,10 @@ foreach($query as $row)
             <td>€$row->prijs</td>
         </tr>
         <tr>
+            <td>Verkocht?</td>
+            <td>$row->verkocht</td>
+        </tr>
+        <tr>
             <td>$row->filmpje</td>
         </tr>
         ";
