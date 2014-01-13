@@ -17,7 +17,7 @@ foreach($query as $row)
             <td>$row->datum</td>
             <td>$row->tijd</td>
             <td>$row->bevestigd</td>
-            <td><a href='".base_url()."index.php/verkoper/cancel_appointment/$row->afspraaknr'>Annuleren</a></td>
+            <td><a href='".base_url()."index.php/verkoper/cancel_appointment_view/$row->afspraaknr'>Annuleren</a></td>
         </tr>
         ";
 }?>

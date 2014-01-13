@@ -22,8 +22,12 @@ U kunt één van onze verkopers mailen (mailadressen van de verkopers vind u op 
                           <td><?php echo $row->emailadres; ?></td>
                       </tr>
                       <tr>
-                          <td>Dag & Tijd</td>
-                          <td><input type="datetime-local" name="datum" id="datepicker1"></td>
+                          <td>Dag</td>
+                          <td><input type="date" name="datum" min="<?php echo date("Y-m-d"); ?>"></td>
+                      </tr>
+                      <tr>
+                          <td>Tijd</td>
+                          <td><?php echo form_dropdown('tijd', $this->db->enum_select('afspraak','tijd'));  ?></td>
                       </tr>
                       <tr>
                           <td><input type="submit" name="submit" value="afspraak maken"></td>

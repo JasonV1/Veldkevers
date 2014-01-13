@@ -54,12 +54,10 @@ class Verkoper_model extends CI_Model
       
       $this->db->query("INSERT INTO `eigenaar` (`id`,
                                                          `autoid`,
-                                                         `gekocht`,
-                                                         `herinnering`)
+                                                         `gekocht`)
                                                 VALUES  ('".$post['achternaam']."',
                                                          '".$post['autoid']."',
-                                                         '".$post['gekocht']."',
-                                                         '".$post['herinnering']."')");
+                                                         '".$post['gekocht']."'')");
       
       $this->db->query("UPDATE `gebruikersrol` SET `rol_id` = 5
                         WHERE `gebruiker_id` = ".$post['achternaam']."");
@@ -68,6 +66,26 @@ class Verkoper_model extends CI_Model
                         WHERE `autoid` = ".$post['autoid']."");
       
  
+  }
+  
+  public function appointment_data($id)
+  {
+      $this->load->database();
+      $query = $this->db->query("SELECT * FROM `afspraak`
+                                 WHERE `afspraaknr` = '".$id."'");
+      return $query->result();
+  }
+  
+  public function cancel_appointment($post)
+  {
+      $this->load->database();
+      
+      $this->db->query("INSERT INTO `geannuleerde-afspraken` (`afspraaknr`,
+                                                              `gebruiker_id`,
+                                                              `reden`)
+                                                VALUES  ('".$post['afspraaknr']."',
+                                                         '".$post['gebruiker_id']."',
+                                                         '".$post['reden']."')");
   }
 }
 // End of file verkoper_model.php

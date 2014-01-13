@@ -1,3 +1,6 @@
+Op deze pagina vind u uw gemaakte afspraak terug. Is de pagina leeg, dan heeft u nog geen afspraken gemaakt.<br />
+Om de afspraak te annuleren, dient u vroegtijdig een verkoper te mailen.
+
 <table>
     <?php
         foreach($afspraken as $row)
@@ -27,5 +30,3 @@
     
     
 </table>
-
-<a href="#">Annuleer deze afspraak</a>

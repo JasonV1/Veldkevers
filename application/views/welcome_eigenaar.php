@@ -1,1 +1,2 @@
-Eigenaar page.
+Welkom, <?php echo $this->session->userdata["logged_in"]["voornaam"]; ?>! Dit is uw persoonlijke eigenaarsruimte.<br />
+U kunt hier uw auto bekijken en een afspraak maken voor een onderhoudsbeurt voor die auto.

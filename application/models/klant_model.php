@@ -53,36 +53,22 @@ class Klant_model extends CI_Model
   
   public function afspraak_maken($post, $random)
   {
-      $this->load->database();
-      
-      
-      $today = date('Y-m-d');
-      $query = $this->db->query("SELECT * FROM `afspraak`
-                                 WHERE `datum` = '".$today."'");
-      
-      if ($query->num_rows() > 0) {
-        $this->db->query("INSERT INTO `afspraak` (`afspraaknr`,
-                                                           `autoid`,
-                                                           `gebruiker_id`,
-                                                           `datum`,
-                                                           `tijd`,
-                                                           `bevestigd`,
-                                                           `random`)
-                                                  VALUES  (NULL,
-                                                           '".$post['autoid']."',
-                                                           '".$this->session->userdata["logged_in"]["user_id"]."',
-                                                           '".$post['datum']."',
-                                                           '".$post['tijd']."',
-                                                           'nee',
-                                                           '".$random."')");
-        } else {
-            echo "De geselecteerde datum ligt in het verleden";
-            return false;
-        }
-      
-      
-      
-      
+      $this->load->database();     
+ 
+      $this->db->query("INSERT INTO `afspraak` (`afspraaknr`,
+                                                     `autoid`,
+                                                     `gebruiker_id`,
+                                                     `datum`,
+                                                     `tijd`,
+                                                     `bevestigd`,
+                                                     `random`)
+                                            VALUES  (NULL,
+                                                     '".$post['autoid']."',
+                                                     '".$this->session->userdata["logged_in"]["user_id"]."',
+                                                     '".$post['datum']."',
+                                                     '".$post['tijd']."',
+                                                     'nee',
+                                                     '".$random."')");   
   }
   
   public function update_appointment()

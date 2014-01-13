@@ -35,12 +35,14 @@ class Eigenaar_model extends CI_Model
                                                            `autoid`,
                                                            `gebruiker_id`,
                                                            `datum`,
+                                                           `tijd`,
                                                            `bevestigd`,
                                                            `random`)
                                                   VALUES  (NULL,
                                                            '".$post['autoid']."',
                                                            '".$this->session->userdata["logged_in"]["user_id"]."',
                                                            '".$post['datum']."',
+                                                           '".$post['tijd']."',
                                                            'nee',
                                                            '".$random."')");
   }

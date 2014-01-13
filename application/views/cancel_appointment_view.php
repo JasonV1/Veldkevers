@@ -1,10 +1,16 @@
+<?php echo form_open('verkoper/cancel_appointment');
+foreach($query as $row)
+{ ?>
 <table>
 
 <tr>
-            <td><h2>Afspraak annuleren</h2></td>
+        <td><h2>Afspraak annuleren</h2></td>
         </tr>
         <tr>
             <td><input type='hidden' name='afspraaknr' value='<?php echo $row->afspraaknr; ?>' /></td>
+        </tr>
+        <tr>
+            <td><input type='hidden' name='gebruiker_id' value='<?php echo $row->gebruiker_id; ?>' /></td>
         </tr>
         <tr>
             <td>Reden</td>
@@ -16,3 +22,5 @@
             <td><input type='submit' value='annuleren' /></td>
         </tr>
 </table>
+<?php echo form_close(); 
+}?>

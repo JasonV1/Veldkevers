@@ -6,6 +6,34 @@ class Chef extends CI_Controller {
      $this->load->model('chef_model'); 
     }
     
+    public function beveiliging()
+    {
+        if ( !isset( $this->session->userdata["logged_in"]["emailadres"]) )
+        {
+               echo "U bent niet ingelogd en daarom niet bevoegd om deze pagina te bekijken.";
+               header('refresh:3;url='.base_url().'index.php'); 
+               exit();
+        }
+        else if ( $this->session->userdata["logged_in"]["rol_id"] ==  4 )
+        {
+               echo "U heeft niet de juiste gebruikersrol, u wordt doorgestuurd naar uw homepage.";
+               header('refresh:3;url='.base_url().'index.php/verkoper/welcome_verkoper'); 
+               exit();
+        }
+        else if ( $this->session->userdata["logged_in"]["rol_id"] ==  5 )
+        {
+               echo "U heeft niet de juiste gebruikersrol, u wordt doorgestuurd naar uw homepage.";
+               header('refresh:3;url='.base_url().'index.php/eigenaar/welcome_eigenaar'); 
+               exit();
+        }
+        else if ( $this->session->userdata["logged_in"]["rol_id"] ==  1 )
+        {
+               echo "U heeft niet de juiste gebruikersrol, u wordt doorgestuurd naar uw homepage.";
+               header('refresh:3;url='.base_url().'index.php/klant/welcome_klant'); 
+               exit();
+        }
+    }
+    
     public function index()
     {
         $this->load->view('headeronecolumn');
@@ -16,12 +44,14 @@ class Chef extends CI_Controller {
     public function welcome_chef()
     {
         $this->load->view('headeronecolumn');
-        $this->load->view('welcome_chef');
+        $data = $this->beveiliging();
+        $this->load->view('welcome_chef', $data);
         $this->load->view('footeronecolumn');
     }
     
         public function auto_view_chef(){
         $this->load->view("headeronecolumn");
+        $data = $this->beveiliging();
         $data['query']=$this->chef_model->get_car_data();
         $this->load->view('auto_view_chef',$data);
         $this->load->view("footeronecolumn");
@@ -29,6 +59,7 @@ class Chef extends CI_Controller {
     
     public function auto_overview_chef($id){
         $this->load->view("headeronecolumn");
+        $data = $this->beveiliging();
         $data['query']=$this->chef_model->get_car_data_by_id($id);
         $this->load->view('auto_overview_chef',$data);
         $this->load->view("footeronecolumn");
@@ -37,6 +68,7 @@ class Chef extends CI_Controller {
     public function edit_car_view($id)
     {
         $this->load->view("headeronecolumn");
+        $data = $this->beveiliging();
         $data['query']=$this->chef_model->get_car_data_by_id($id);
         $this->load->view("edit_car", $data);
         $this->load->view("footeronecolumn");
@@ -45,6 +77,7 @@ class Chef extends CI_Controller {
     public function edit_appointment_view($id)
     {
         $this->load->view("headeronecolumn");
+        $data = $this->beveiliging();
         $data['query']=$this->chef_model->get_appointment_data($id);
         $this->load->view("edit_appointment", $data);
         $this->load->view("footeronecolumn");
@@ -53,7 +86,8 @@ class Chef extends CI_Controller {
     public function new_car_view()
     {
         $this->load->view("headeronecolumn");
-        $this->load->view("new_car");
+        $data = $this->beveiliging();
+        $this->load->view("new_car", $data);
         $this->load->view("footeronecolumn");
     }
     
@@ -116,6 +150,7 @@ class Chef extends CI_Controller {
     public function afspraken()
     {
         $this->load->view('headeronecolumn');
+        $data = $this->beveiliging();
         $data['query']=$this->chef_model->get_afspraken();
         $this->load->view('afspraken_view_chef', $data);
         $this->load->view('footeronecolumn');
@@ -124,6 +159,7 @@ class Chef extends CI_Controller {
     public function adressen()
     {
         $this->load->view('headeronecolumn');
+        $data = $this->beveiliging();
         $data['query']=$this->chef_model->get_adressen();
         $this->load->view('adressen_view', $data);
         $this->load->view('footeronecolumn');

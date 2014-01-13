@@ -23,7 +23,7 @@ U kunt één van onze verkopers mailen (mailadressen van de verkopers vind u op 
                       </tr>
                       <tr>
                           <td>Dag</td>
-                          <td><input type="date" name="datum" id="datepicker1"></td>
+                          <td><input type="date" name="datum" min="<?php echo date("Y-m-d"); ?>"></td>
                       </tr>
                       <tr>
                           <td>Tijd</td>
