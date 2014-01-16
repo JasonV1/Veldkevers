@@ -4,7 +4,7 @@
 <?php
 foreach($query as $row)
 {
-  
+  $prijs = $row->prijs * 2.2;
   echo "<tr>
             <td><img src='".base_url()."assets/images/".$row->afbeelding."'</td>
         </tr>
@@ -17,7 +17,7 @@ foreach($query as $row)
         </tr>
         <tr>
             <td>Prijs</td>
-            <td>€$row->prijs</td>
+            <td>€$prijs</td>
         </tr>
         <tr>
             <td><a href='".base_url()."index.php/klant/auto_overzicht_klant/$row->autoid'>Meer info</td>

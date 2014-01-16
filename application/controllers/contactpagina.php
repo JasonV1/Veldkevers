@@ -35,6 +35,21 @@ class Contactpagina extends CI_Controller {
         {
          echo "Uw vraag is verstuurd! Er wordt zo snel mogelijk contact met u opgenomen.";
          $this->contact_model->insert_question();
+         
+         $this->load->library('email');
+
+         $this->email->from($_POST['emailadres'], $_POST['voornaam']);
+         $this->email->to('jason.vdv.94@gmail.com'); 
+
+         $this->email->subject('Bevestigen afspraak');
+         $this->email->message('Hallo,
+                                Er is een vraag binnengekomen via de contactpagina:
+                                
+                                Naam: '.$_POST['voornaam'].' '.$_POST['achternaam'].'
+                                E-mailadres: '.$_POST['emailadres'].'
+                                Vraag: '.$_POST['vraag'].'');	
+
+         $this->email->send();
          $this->contact();
         }
     }

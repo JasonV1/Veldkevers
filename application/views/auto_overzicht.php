@@ -4,7 +4,7 @@
 <?php
 foreach($query as $row)
 {
-  
+  $prijs = $row->prijs * 2.2;
   echo "
         <tr>
             <td><h2>Overzicht $row->merk $row->type</h2></td>
@@ -18,7 +18,7 @@ foreach($query as $row)
         </tr>
         <tr>
             <td>Prijs</td>
-            <td>€$row->prijs</td>
+            <td>€$prijs</td>
         </tr>
         <tr>
             <td>Verkocht?</td>

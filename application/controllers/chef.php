@@ -91,17 +91,22 @@ class Chef extends CI_Controller {
         $this->load->view("footeronecolumn");
     }
     
+    
     public function new_car()
     {
-        $this->load->library('form_validation');
+       $this->load->library('form_validation');
         // field name, error message, validation rules
         
         $this->form_validation->set_rules('merk', 'Merk', 'trim|required');
         $this->form_validation->set_rules('type', 'Type', 'trim|required');
         $this->form_validation->set_rules('bouwjaar', 'Bouwjaar', 'trim|required');
         $this->form_validation->set_rules('prijs', 'Prijs', 'trim|required');
-        $this->form_validation->set_rules('afbeelding', 'Afbeelding', 'trim|required');
+        if (empty($_FILES['afbeelding']['name']))
+        {
+            $this->form_validation->set_rules('afbeelding', 'Afbeelding', 'required');
+        }
         $this->form_validation->set_rules('filmpje', 'Filmpje', 'trim|required');
+        
         
         if($this->form_validation->run() == FALSE)
         {
@@ -110,11 +115,28 @@ class Chef extends CI_Controller {
         }
         else
         {
+            if (!empty($_FILES['afbeelding']['name']))
+            {
+                $uploads_dir = 'D:/wamp/www/veldkevers/assets/images';
+                if ($_FILES["afbeelding"] > 0) {
+                    if (!is_dir($uploads_dir))
+                    {
+                        mkdir('D:/wamp/www/veldkevers/assets/images', 777);
+                    }
+                        $tmp_name = $_FILES["afbeelding"]["tmp_name"];
+                        $name = $_FILES["afbeelding"]["name"];
+                        move_uploaded_file($tmp_name, "$uploads_dir/$name");
+                }
+            }
+            
+            var_dump($_FILES);
             echo "De auto is met succes toegevoegd.";
             $this->chef_model->add_car();
-            $this->new_car_view();
+            $this->auto_view_chef();
         }
     }
+    
+    
     
     public function edit_car()
     {
@@ -127,6 +149,8 @@ class Chef extends CI_Controller {
         $this->form_validation->set_rules('prijs', 'Prijs', 'trim|required');
         $this->form_validation->set_rules('afbeelding', 'Afbeelding', 'trim|required');
         $this->form_validation->set_rules('filmpje', 'Filmpje', 'trim|required');
+        
+        
         
         if($this->form_validation->run() == FALSE)
         {
@@ -175,17 +199,19 @@ class Chef extends CI_Controller {
         $config['format'] = 'word';  
         // Specify the address layout, using HTML <br /> tags to determine line breaks  
         // The elements listed here become the address array keys (see below)  
-        $config['layout'] = "voornaam achternaam<br />straatnaam<br />";  
+        
+        $config['layout'] = "voornaam achternaam<br />straatnaam<br />postcode";  
         $this->labels->initialize($config);  
-
+        
         // List the addresses to used on the labels  
         // Notice how the array keys correpond to the 'layout' element above  
-        
+        $this->chef_model->adressen_word();
         $addresses = array(  
            array(  
-               'voornaam'=>'Hallo',  
-               'achternaam'=>'Marks',  
-               'straatnaam'=>'22 Sweet Avenue' 
+               'voornaam'=>$_POST['voornaam'],
+               'achternaam'=>$_POST['achternaam'],  
+               'straatnaam'=>$_POST['straatnaam'],
+               'postcode'=>$_POST['postcode']
            )
         ); 
 

@@ -1,3 +1,10 @@
+<style>
+    .etiketten{
+        border: 1px #0000FF solid; 
+    }
+    
+</style>
+
 <div class='noprint'>
     <h2>Overzicht adressen</h2>
 </div>
@@ -6,7 +13,8 @@
 <?php
 foreach($query as $row)
 {
-  echo "<tr>
+  echo "
+        <tr>
             <td><h3>$row->voornaam $row->achternaam</h3></td>
         </tr>
         <tr>

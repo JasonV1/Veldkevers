@@ -3,6 +3,7 @@
 <table class="cars2">
 <?php
 foreach($car_data as $row)
+    $prijs = $row->prijs * 2.2;
 {
   
   echo "
@@ -15,7 +16,7 @@ foreach($car_data as $row)
         </tr>
         <tr>
             <td>Gekocht voor:</td>
-            <td>€$row->prijs</td>
+            <td>€$prijs</td>
         </tr>
         <tr>
             <td>Gekocht op:</td>

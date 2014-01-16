@@ -27,11 +27,12 @@ class Chef_model extends CI_Model
     'type'=>$this->input->post('type'),
     'bouwjaar'=>$this->input->post('bouwjaar'),
     'prijs'=>$this->input->post('prijs'),
-    'afbeelding'=>$this->input->post('afbeelding'),
+    'afbeelding'=>$_FILES['afbeelding']['name'],
     'filmpje'=>$this->input->post('filmpje'));
   
     
     $this->db->insert('auto', $data);
+    var_dump($_POST);
   }
   
   public function delete_car($id)
@@ -84,6 +85,14 @@ class Chef_model extends CI_Model
       $query = $this->db->query("SELECT DISTINCT * FROM `gebruiker`
                                 INNER JOIN `gebruikersrol` ON `gebruiker`.`id` = `gebruikersrol`.`gebruiker_id` 
                                 WHERE `gebruikersrol`.`rol_id` = 1");
+      return $query->result();
+  }
+  
+  public function adressen_word()
+  {
+      $this->load->database();
+      $query = $this->db->query("SELECT * FROM `gebruiker`");
+      
       return $query->result();
   }
   

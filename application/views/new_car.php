@@ -1,7 +1,7 @@
 <h2>Nieuwe auto</h2>
 
 <?php echo validation_errors(); ?>
- <?php echo form_open("chef/new_car"); ?>
+ <?php echo form_open_multipart("chef/new_car"); ?>
         <table>
             
             <tr>
@@ -32,7 +32,7 @@
                 <td>Afbeelding*</td>
             </tr>
             <tr>
-                <td><input type="text" id="afbeelding" name="afbeelding" value="<?php echo set_value('afbeelding'); ?>" /></td>
+                <td><input type="file" id="afbeelding" name="afbeelding" size="20" value="<?php echo set_value('afbeelding'); ?>" /></td>
             </tr>
             <tr>
                 <td>Filmpje*</td>
