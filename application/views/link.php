@@ -21,6 +21,7 @@
             {
                 echo "<a href='".base_url()."index.php/eigenaar/welcome_eigenaar'>Home</a>";
                 echo "<a href='".base_url()."index.php/eigenaar/auto_eigenaar'>Mijn Auto</a>";
+                echo "<a href='".base_url()."index.php/eigenaar/bekijk_afspraak'>Bekijk afspraak</a>";
                 echo "<a href='".base_url()."index.php/user/logout'>Logout</a>";
             }
             else if ($rol == 6)
@@ -36,6 +37,7 @@
             {
                 echo "<a href='".base_url()."index.php'>Home</a>";
                 echo "<a href='".base_url()."index.php/contactpagina/contact'>Contact</a>";
+                echo "<a href='".base_url()."index.php/faq/faq_page'>FAQ</a>";
                 echo "<a href='".base_url()."index.php/autos/auto_view'>Auto's</a>";
                 echo "<a href='".base_url()."index.php/user/registration_view'>Registreren</a>";
                 echo "<a href='".base_url()."index.php/user/login_view'>Login</a>";

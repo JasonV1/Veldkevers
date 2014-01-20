@@ -128,8 +128,6 @@ class Chef extends CI_Controller {
                         move_uploaded_file($tmp_name, "$uploads_dir/$name");
                 }
             }
-            
-            var_dump($_FILES);
             echo "De auto is met succes toegevoegd.";
             $this->chef_model->add_car();
             $this->auto_view_chef();
@@ -146,8 +144,13 @@ class Chef extends CI_Controller {
         $this->form_validation->set_rules('merk', 'Merk', 'trim|required');
         $this->form_validation->set_rules('type', 'Type', 'trim|required');
         $this->form_validation->set_rules('bouwjaar', 'Bouwjaar', 'trim|required');
+        $this->form_validation->set_rules('beschrijving', 'Beschrijving', 'trim|required');
+        $this->form_validation->set_rules('aankoopdatum', 'Aankoopdatum', 'trim|required');
         $this->form_validation->set_rules('prijs', 'Prijs', 'trim|required');
-        $this->form_validation->set_rules('afbeelding', 'Afbeelding', 'trim|required');
+        if (empty($_FILES['afbeelding']['name']))
+        {
+            $this->form_validation->set_rules('afbeelding', 'Afbeelding', 'required');
+        }
         $this->form_validation->set_rules('filmpje', 'Filmpje', 'trim|required');
         
         
@@ -159,6 +162,19 @@ class Chef extends CI_Controller {
         }
         else
         {
+            if (!empty($_FILES['afbeelding']['name']))
+            {
+                $uploads_dir = 'D:/wamp/www/veldkevers/assets/images';
+                if ($_FILES["afbeelding"] > 0) {
+                    if (!is_dir($uploads_dir))
+                    {
+                        mkdir('D:/wamp/www/veldkevers/assets/images', 777);
+                    }
+                        $tmp_name = $_FILES["afbeelding"]["tmp_name"];
+                        $name = $_FILES["afbeelding"]["name"];
+                        move_uploaded_file($tmp_name, "$uploads_dir/$name");
+                }
+            }
             echo "De auto is met succes gewijzigd.";
             $this->chef_model->edit_car($_POST);
             $this->auto_view_chef();
@@ -184,7 +200,8 @@ class Chef extends CI_Controller {
     {
         $this->load->view('headeronecolumn');
         $data = $this->beveiliging();
-        $data['query']=$this->chef_model->get_adressen();
+        $data['klanten']=$this->chef_model->get_adressen_klant();
+        $data['eigenaren']=$this->chef_model->get_adressen_eigenaar();
         $this->load->view('adressen_view', $data);
         $this->load->view('footeronecolumn');
     }

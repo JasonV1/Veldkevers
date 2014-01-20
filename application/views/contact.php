@@ -87,7 +87,7 @@
     <table>
         <tr>
             <td>Plaats</td>
-            <td>Amsterdam</td>
+            <td>Uden</td>
         </tr>
         <tr>
             <td>Straat</td>

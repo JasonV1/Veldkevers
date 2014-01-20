@@ -11,7 +11,22 @@
 <div class='print'>
 <table>
 <?php
-foreach($query as $row)
+foreach($klanten as $row)
+{
+  echo "
+        <tr>
+            <td><h3>$row->voornaam $row->achternaam</h3></td>
+        </tr>
+        <tr>
+            <td>$row->straatnaam $row->huisnummer</td>
+        </tr>
+        <tr>
+            <td>$row->postcode $row->woonplaats</td>
+        </tr>
+        ";
+}
+
+foreach($eigenaren as $row)
 {
   echo "
         <tr>
@@ -28,5 +43,5 @@ foreach($query as $row)
 </table>
 </div>
 <div class='noprint'>
-<a href="javascript:window.print()">Print etiketten</a><br />
+<a href="javascript:window.print()">Print deze lijst</a><br />
 </div>

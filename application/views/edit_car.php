@@ -25,12 +25,20 @@ foreach($query as $row)
             <td><input type='text' id='bouwjaar' name='bouwjaar' value='$row->bouwjaar' /></td>
         </tr>
         <tr>
+            <td>Beschrijving</td>
+            <td><textarea id='beschrijving' name='beschrijving' rows='8' cols='40' >$row->beschrijving</textarea></td>
+        </tr>
+        <tr>
+            <td>Aankoopdatum</td>
+            <td><input type='date' id='aankoopdatum' name='aankoopdatum' value='$row->aankoopdatum' /></td>
+        </tr>
+        <tr>
             <td>Prijs</td>
             <td><input type='text' id='prijs' name='prijs' value='$row->prijs' /></td>
         </tr>
         <tr>
             <td>Afbeelding</td>
-            <td><input type='text' id='afbeelding' name='afbeelding' value='$row->afbeelding' /></td>
+            <td><input type='file' id='afbeelding' name='afbeelding' value='$row->afbeelding' /></td>
         </tr>
         <tr>
             <td>Filmpje</td>

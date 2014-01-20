@@ -21,9 +21,6 @@ foreach($query as $row)
         <tr>
             <td>$row->filmpje</td>
         </tr>
-        <tr>
-            <td><a href='".base_url()."index.php/chef/edit_car/$row->autoid'>Wijzigen</td>
-        </tr>
         
         ";
   echo "<br>";

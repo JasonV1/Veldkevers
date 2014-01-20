@@ -32,7 +32,6 @@ class Chef_model extends CI_Model
   
     
     $this->db->insert('auto', $data);
-    var_dump($_POST);
   }
   
   public function delete_car($id)
@@ -49,6 +48,8 @@ class Chef_model extends CI_Model
     $this->db->query("UPDATE `auto` SET `merk` = '".$post['merk']."',
 				 `type` = '".$post['type']."',
 				 `bouwjaar` = '".$post['bouwjaar']."',
+                                 `beschrijving` = '".$post['beschrijving']."',
+                                 `aankoopdatum` = '".$post['aankoopdatum']."',
                                  `prijs` = '".$post['prijs']."',
                                  `afbeelding` = '".$post['afbeelding']."',  
                                  `filmpje` = '".$post['filmpje']."'    
@@ -79,12 +80,21 @@ class Chef_model extends CI_Model
       return $query->result();
   }
   
-  public function get_adressen()
+  public function get_adressen_klant()
   {
       $this->load->database();
       $query = $this->db->query("SELECT DISTINCT * FROM `gebruiker`
                                 INNER JOIN `gebruikersrol` ON `gebruiker`.`id` = `gebruikersrol`.`gebruiker_id` 
                                 WHERE `gebruikersrol`.`rol_id` = 1");
+      return $query->result();
+  }
+  
+  public function get_adressen_eigenaar()
+  {
+      $this->load->database();
+      $query = $this->db->query("SELECT DISTINCT * FROM `gebruiker`
+                                INNER JOIN `gebruikersrol` ON `gebruiker`.`id` = `gebruikersrol`.`gebruiker_id` 
+                                WHERE `gebruikersrol`.`rol_id` = 5");
       return $query->result();
   }
   

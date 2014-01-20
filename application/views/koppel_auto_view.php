@@ -18,7 +18,7 @@ foreach($car_data as $row)
         </tr>
         <tr>
             <td>Datum gekocht</td>
-            <td><input type='date' name='gekocht' id='gekocht' /></td>
+            <td><input type='date' max="<?php echo date('Y-m-d'); ?>" name='gekocht' id='gekocht' /></td>
         </tr>
         <tr>
             <td><input type="submit" value="Auto koppelen" /></td>

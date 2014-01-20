@@ -30,7 +30,5 @@ foreach($query as $row)
             <td><a href='".base_url()."index.php/chef/delete_car/$row->autoid'>Verwijderen</td>
         </tr>
         ";
-  echo "<br>";
-  var_dump($row);
 }?>
 </table>
